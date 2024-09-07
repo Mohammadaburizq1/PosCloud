@@ -60,8 +60,7 @@ public class ProductsController(IUnitOfWork unit) : BaseApiController
         return BadRequest("Problem updating the product");
     }
 
-    [Authorize(Roles = "Admin")]
-    [HttpDelete("{id:int}")]
+    [HttpDelete("{id:int}")]    
     public async Task<ActionResult> DeleteProduct(int id)
     {
         var product = await unit.Repository<Product>().GetByIdAsync(id);

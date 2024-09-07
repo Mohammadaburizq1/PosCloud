@@ -1,8 +1,9 @@
 using Core.Entities;
 using Infrastructure.Config;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-public class StoreContext(DbContextOptions options) : DbContext(options)
+public class StoreContext(DbContextOptions options) : IdentityDbContext<AppUser>(options)
 {
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductBrand> ProductBrand { get; set; }
